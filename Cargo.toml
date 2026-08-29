@@ -3,10 +3,10 @@ name = "typarena"
 description = "Type-keyed arena storage with stable per-type columns."
 keywords = ["arena", "type-map", "storage", "no_std"]
 categories = ["data-structures", "no-std"]
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 license = "MIT OR Apache-2.0"
-repository = "https://github.com/voxell-tech/typarena"
+repository = "https://github.com/nixonyh/typarena"
 
 [features]
 default = []

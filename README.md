@@ -1,10 +1,10 @@
 # Typarena
 
-[![License](https://img.shields.io/badge/license-MIT%2FApache-blue.svg)](https://github.com/voxell-tech/typarena#license)
+[![License](https://img.shields.io/badge/license-MIT%2FApache-blue.svg)](https://github.com/nixonyh/typarena#license)
 [![Crates.io](https://img.shields.io/crates/v/typarena.svg)](https://crates.io/crates/typarena)
 [![Downloads](https://img.shields.io/crates/d/typarena.svg)](https://crates.io/crates/typarena)
 [![Docs](https://docs.rs/typarena/badge.svg)](https://docs.rs/typarena/latest/typarena/)
-[![CI](https://github.com/voxell-tech/typarena/workflows/CI/badge.svg)](https://github.com/voxell-tech/typarena/actions)
+[![CI](https://github.com/nixonyh/typarena/workflows/CI/badge.svg)](https://github.com/nixonyh/typarena/actions)
 [![Discord](https://img.shields.io/discord/442334985471655946.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/Mhnyp6VYEQ)
 
 Type-keyed arena storage with stable per-type columns.
