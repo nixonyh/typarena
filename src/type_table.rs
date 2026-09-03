@@ -171,6 +171,17 @@ where
         self.column::<V>().into_iter().flat_map(IndexMap::iter)
     }
 
+    /// Iterates `(key, &mut value)` pairs in the column for `V`.
+    ///
+    /// Yields nothing if no column for `V` has been created yet.
+    pub fn iter_mut<V: 'static>(
+        &mut self,
+    ) -> impl Iterator<Item = (&K, &mut V)> {
+        self.column_mut::<V>()
+            .into_iter()
+            .flat_map(IndexMap::iter_mut)
+    }
+
     /// Removes every value in the column for `V`, leaving it empty.
     ///
     /// Returns `true` if a column for `V` exists, or `false` if one
@@ -431,6 +442,30 @@ mod tests {
             .collect::<alloc::vec::Vec<_>>();
         keys.sort();
         assert_eq!(keys, [0, 1]);
+    }
+
+    #[test]
+    fn iter_mut_edits_every_value_in_place() {
+        let mut table = TypeTable::<u32>::new();
+        table.insert(0, Position(0.0, 0.0));
+        table.insert(1, Position(1.0, 1.0));
+
+        for (_, pos) in table.iter_mut::<Position>() {
+            pos.0 += 10.0;
+        }
+
+        let mut xs = table
+            .iter::<Position>()
+            .map(|(_, p)| p.0)
+            .collect::<alloc::vec::Vec<_>>();
+        xs.sort_by(f32::total_cmp);
+        assert_eq!(xs, [10.0, 11.0]);
+    }
+
+    #[test]
+    fn iter_mut_absent_column_yields_nothing() {
+        let mut table = TypeTable::<u32>::new();
+        assert_eq!(table.iter_mut::<Position>().count(), 0);
     }
 
     #[test]
