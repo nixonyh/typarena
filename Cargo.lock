@@ -55,7 +55,7 @@ checksum = "ea8f483b9159a7efadd9a82915dc40fdc9cfef7985651bbb83a8db20b12bf629"
 
 [[package]]
 name = "typarena"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "hashbrown 0.16.1",
  "indexmap",
